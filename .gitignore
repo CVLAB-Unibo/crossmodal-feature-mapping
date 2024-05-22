@@ -1,0 +1,8 @@
+__pycache__
+models/__pycache__
+utils/__pycache__
+processing/__pycache__
+datasets
+checkpoints
+wandb
+results
