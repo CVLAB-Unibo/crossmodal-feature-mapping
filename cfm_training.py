@@ -85,8 +85,8 @@ def train_CFM(args):
             # Losses.
             xyz_mask = (xyz_patch.sum(axis = -1)  == 0) # Mask only the feature vectors that are 0 everywhere.
             
-            loss_3Dto2D = 1 - metric(xyz_feat_pred[~xyz_mask], xyz_patch[~xyz_mask]).mean()
-            loss_2Dto3D = 1 - metric(rgb_feat_pred[~xyz_mask], rgb_patch[~xyz_mask]).mean()
+            loss_2Dto3D = 1 - metric(xyz_feat_pred[~xyz_mask], xyz_patch[~xyz_mask]).mean()
+            loss_3Dto2D = 1 - metric(rgb_feat_pred[~xyz_mask], rgb_patch[~xyz_mask]).mean()
             
             cos_sim_3Dto2D, cos_sim_2Dto3D = 1 - loss_3Dto2D.cpu(), 1 - loss_2Dto3D.cpu()
 
